@@ -1,0 +1,201 @@
+html{
+    height: 100%;
+}
+
+body{
+
+    font-family: 'Adapter PE'; /* Имя шрифта */
+    
+    src: url(AdapterPEVFTRIAL-All.otf); /* Путь к файлу со шрифтом */
+    font-size: 150px;
+    font-variation-settings: "wght" 443, "opsz" 4, "slnt" 0;
+  margin: 0;
+  width: 100%;
+  height:100%;
+  cursor: url('cursor.png'), auto;
+    
+}
+
+.cursor{
+    background-image: url('cursor.png');
+    position: fixed;
+    pointer-events: none;
+    transition: all 0.1s;
+    width: 12px;
+    height: 20px;
+    z-index: 101;
+}
+
+.container{
+    box-sizing: border-box;
+    width: 100%;
+    /*border: 8px plum solid;*/
+    border: 3px black solid;
+
+    border-right: 0px;
+    animation: head-animation;
+    border-collapse: collapse;
+  }
+
+ .blur{
+  
+   /* filter: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGZpbHRlciBpZD0iYmx1ciI+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iNSIvPjwvZmlsdGVyPjwvc3ZnPgo=#blur");
+   */ z-index: 1;
+    pointer-events:none;
+    animation: blur 0.1s ease forwards;
+ } 
+
+ @keyframes blur {
+    0%   { 
+        -webkit-filter: blur(0px);
+        -moz-filter: blur(0px);
+        filter: blur(0px);
+     }
+    100% { 
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        filter: blur(5px);
+     }
+} 
+
+
+.message{
+    z-index: 100;
+    position: fixed;
+    font-size: 100px;
+    background: white;
+    top:180px;
+    display: none;
+}
+
+
+.message-left-block{
+width: 80%;
+}
+.message-right-block{
+    width: 20%;
+}
+.message-right-block .close{
+    width: 50px;
+    height: 50px;
+    background: url("close.svg") no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 30px;
+    right: 15px;
+    transition: all 0.3s ease;
+}
+
+.message-right-block .close:hover{
+    transform: rotate(90deg);
+}
+
+
+
+
+.head{
+    width: 100%; 
+    border-bottom: 3px black solid;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 0.8;
+    overflow-y: hidden;
+    font-variation-settings: "wght" 600;
+    letter-spacing: -12px;
+    margin-left: -6px
+}
+
+
+
+.friends-row{
+    font-size: 30px;
+    display: inline-block;
+  
+}
+
+.friends-row div:first-child{
+    width: 134px;
+    color:white;
+  
+}
+
+.link{
+  text-decoration: underline;
+  color: black
+}
+
+.link:hover{
+    color: white;
+    background-color: black;
+}
+
+.friends-row div{
+    display: inline-block;
+    margin-right: 90px;
+  
+}
+
+.my-friends{
+    opacity: 0.5;
+}
+ .owners-list{
+     display: inline-block;
+     overflow: scroll;
+     white-space: nowrap;
+     width: 100%;
+     font-size: 65px;
+ }
+
+ .owner{
+    display: inline-block;
+    margin-right: 90px;
+    position: relative;
+    z-index: 10;;
+}
+
+.owner:hover:after{
+    content: '';
+    display: inline-block;
+    height: 40px;  /*height of icon */
+    width: 40px;  /*width of icon */
+    position: absolute;
+      /*where to replace the icon */
+    top: 20px;
+      /*background */
+    background: url(heart-white.svg) no-repeat 0px 0px;
+    background-size: contain;
+}
+
+.owner.selected:after{
+    content: '';
+    display: inline-block;
+    height: 40px;  /*height of icon */
+    width: 40px;  /*width of icon */
+    position: absolute;
+      /*where to replace the icon */
+    top: 15px;
+      /*background */
+    background: url(heart.svg) no-repeat 0px 0px;
+}
+
+canvas{
+    background: white;
+ 
+}
+
+
+
+
+
+
+
+.marquee{text-align:left;width:100%;overflow:hidden;white-space: nowrap;font-size: 18px;background: red;border-bottom: 3px solid black;color:white}
+.marquee span { display:inline-block;width:100%;text-indent:0;animation: marquee 5s linear infinite}
+.marquee span:hover{animation-play-state: paused}
+@keyframes marquee {
+ 0%   { transform: translate(100%, 0); }
+ 100% { transform: translate(-100%, 0); }
+}
+@media only screen and (max-width: 440px) {
+.marquee span{animation:none;padding-left:0}
+}
